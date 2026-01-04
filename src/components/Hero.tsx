@@ -41,7 +41,7 @@ const Hero = () => {
           >
             <span className="text-foreground">Hi, I'm </span>
             <span className="gradient-text animate-gradient bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 bg-clip-text text-transparent">
-              Satheeskumar
+              Thilakshana
             </span>
           </motion.h1>
 

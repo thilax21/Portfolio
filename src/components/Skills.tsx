@@ -18,8 +18,8 @@ import {
 
 const skills = [
   { name: "React.js", icon: Code2, category: "Frontend", color: "from-cyan-400 to-cyan-600" },
-  { name: "Next.js", icon: Layers, category: "Frontend", color: "from-white/80 to-white/40" },
-  { name: "TypeScript", icon: FileCode, category: "Frontend", color: "from-blue-400 to-blue-600" },
+  // { name: "Next.js", icon: Layers, category: "Frontend", color: "from-white/80 to-white/40" },
+  // { name: "TypeScript", icon: FileCode, category: "Frontend", color: "from-blue-400 to-blue-600" },
   { name: "Tailwind CSS", icon: Palette, category: "Frontend", color: "from-cyan-400 to-teal-500" },
   { name: "Node.js", icon: Server, category: "Backend", color: "from-green-400 to-green-600" },
   { name: "Express.js", icon: Zap, category: "Backend", color: "from-yellow-400 to-orange-500" },
