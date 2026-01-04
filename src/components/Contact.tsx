@@ -196,7 +196,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleMailto = () => {
+  const handleMailto = async () => {
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill all fields",
@@ -210,17 +210,31 @@ const Contact = () => {
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
 
-    // Open user's email client
-    window.location.href = `mailto:thilakshi04@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:thilakshi04@gmail.com?subject=${subject}&body=${body}`;
+
+    // Try to open email client
+    try {
+      window.location.href = mailtoLink;
+
+      // Optional toast
+      toast({
+        title: "Email client opened",
+        description: "Your default email client should open with a pre-filled message.",
+      });
+    } catch (error) {
+      // Fallback: copy to clipboard
+      await navigator.clipboard.writeText(
+        `To: thilakshi04@gmail.com\nSubject: ${subject}\n\n${formData.message}`
+      );
+      toast({
+        title: "Email client failed",
+        description:
+          "Message copied to clipboard! You can paste it into your email client manually.",
+      });
+    }
 
     // Reset form
     setFormData({ name: "", email: "", message: "" });
-
-    // Optional toast
-    toast({
-      title: "Email client opened",
-      description: "Your default email client should open with a pre-filled message.",
-    });
   };
 
   const contactInfo = [
@@ -231,12 +245,11 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/thilax21", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/thilakshana-satheeskumar-122ba6365/", label: "LinkedIn" }
+    { icon: Linkedin, href: "https://www.linkedin.com/in/thilakshana-satheeskumar-122ba6365/", label: "LinkedIn" },
   ];
 
   return (
     <section id="contact" className="py-24 relative" ref={ref}>
-      {/* Background accents */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
 
@@ -286,7 +299,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
             <div>
               <p className="text-sm text-muted-foreground mb-4">Follow me on</p>
               <div className="flex gap-4">
@@ -307,7 +319,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form (Mailto) */}
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -318,11 +330,10 @@ const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Name</label>
                 <input
                   type="text"
-                  required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 placeholder:text-muted-foreground"
                   placeholder="Your name"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 placeholder:text-muted-foreground"
                 />
               </div>
 
@@ -330,23 +341,21 @@ const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Email</label>
                 <input
                   type="email"
-                  required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 placeholder:text-muted-foreground"
                   placeholder="your@email.com"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 placeholder:text-muted-foreground"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Message</label>
                 <textarea
-                  required
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 placeholder:text-muted-foreground resize-none"
                   placeholder="Tell me about your project..."
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 placeholder:text-muted-foreground resize-none"
                 />
               </div>
 
