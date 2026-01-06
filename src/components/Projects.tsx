@@ -13,8 +13,8 @@ const projects = [
     title: "Mental health support platform",
     img:pro1,
     description:
-      "A full-stack mental health support platform with peer connections,Blog Writing,payment integration, and admin dashboard.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+      "Built an AI-enabled MERN stack mental health platform with peer support, blogs, payments, and admin dashboard.",
+    tech: ["React", "Node.js", "MongoDB", "Stripe", "gemini AI"],
     github: "https://github.com/thilax21/FinalProject-Healpeer.git",
     live: "https://final-project-healpeer.vercel.app/",
     gradient: "from-purple-500 to-cyan-500",
