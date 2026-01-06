@@ -246,7 +246,6 @@ const skills: Skill[] = [
   { name: "REST APIs", icon: Globe, category: "Backend", color: "from-purple-400 to-purple-600" },
   { name: "Git", icon: GitBranch, category: "Tools", color: "from-orange-400 to-red-500" },
   { name: "GitHub", icon: GitBranch, category: "Tools", color: "from-gray-400 to-gray-600" },
-  { name: "Docker", icon: Container, category: "Tools", color: "from-blue-400 to-blue-600" },
   { name: "AWS", icon: Cloud, category: "Cloud", color: "from-orange-400 to-yellow-500", level: "Beginner" },
   { name: "Figma", icon: Figma, category: "Tools", color: "from-pink-400 to-purple-500" },
   { name: "Linux", icon: Terminal, category: "Tools", color: "from-yellow-400 to-amber-500" },

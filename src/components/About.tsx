@@ -55,7 +55,7 @@ const About = () => {
               <img
   src={profile}
   alt="Profile"
-  className="w-full h-full object-cover rounded-3xl"
+  className="w-full h-full object-cover rounded-2xl"
 />
 
               </div>
