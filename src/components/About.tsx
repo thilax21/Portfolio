@@ -1,4 +1,4 @@
-import profile from "@/Assets/profile.jpg"
+import profile from "@/Assets/profile1.jpg"
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
